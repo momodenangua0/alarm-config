@@ -76,8 +76,11 @@ async def _init_resource(hass: HomeAssistant, url: str, ver: str) -> None:
         add_extra_js_url(hass, url_with_version)
 
 
-async def async_setup(hass: HomeAssistant, config: dict[str, Any]) -> bool:
+async def _async_setup_internal(hass: HomeAssistant, config: dict[str, Any]) -> bool:
     hass.data.setdefault(DOMAIN, {})
+    if hass.data[DOMAIN].get("initialized"):
+        return True
+    hass.data[DOMAIN]["initialized"] = True
 
     store = Store(hass, STORAGE_VERSION, STORAGE_KEY)
     hass.data[DOMAIN]["store"] = store
@@ -118,3 +121,11 @@ async def async_setup(hass: HomeAssistant, config: dict[str, Any]) -> bool:
 
     await async_load_platform(hass, "sensor", DOMAIN, {}, config)
     return True
+
+
+async def async_setup(hass: HomeAssistant, config: dict[str, Any]) -> bool:
+    return await _async_setup_internal(hass, config)
+
+
+async def async_setup_entry(hass: HomeAssistant, entry) -> bool:
+    return await _async_setup_internal(hass, {})

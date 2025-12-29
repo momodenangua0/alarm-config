@@ -5,6 +5,7 @@
   "documentation": "https://github.com/momodenangua0/alarm-config",
   "issue_tracker": "https://github.com/momodenangua0/alarm-config/issues",
   "codeowners": ["@momodenangua0"],
+  "config_flow": true,
   "requirements": [],
   "dependencies": ["http", "frontend", "lovelace"],
   "iot_class": "local_polling"
