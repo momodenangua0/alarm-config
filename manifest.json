@@ -1,0 +1,10 @@
+﻿{
+  "domain": "alarm_config",
+  "name": "Alarm Config",
+  "version": "0.1.0",
+  "documentation": "https://example.com",
+  "codeowners": [],
+  "requirements": [],
+  "dependencies": ["http", "frontend", "lovelace"],
+  "iot_class": "local_polling"
+}

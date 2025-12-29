@@ -1,0 +1,15 @@
+﻿set_responsible_people:
+  name: Set Responsible People
+  description: Set the responsible people list. One entry per line.
+  fields:
+    people:
+      name: People
+      description: One person or notify service per line.
+      required: true
+      selector:
+        text:
+          multiline: true
+
+clear_responsible_people:
+  name: Clear Responsible People
+  description: Clear the responsible people list.
