@@ -1,4 +1,6 @@
 {
   "name": "Alarm Config",
-  "render_readme": true
+  "render_readme": true,
+  "zip_release": true,
+  "filename": "alarm_config.zip"
 }
